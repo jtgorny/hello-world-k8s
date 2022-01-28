@@ -50,4 +50,7 @@ flux create kustomization sample-app \
 --interval=5m \
 --export > ./sample-app-kustomization.yaml
 
+git add -A && git commit -m "Add podinfo Kustomization"
+git push
+
 # 
