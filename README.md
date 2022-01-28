@@ -11,6 +11,18 @@ docker tag a23196d090a9 gornyj/hello-world:test
 # pushing docker image
 docker push gornyj/hello-world:test
 
+# applying to cluster
+kubectl apply -n demo -f ./k8s/hello-app-deployment.yaml
+
+# connect
+kubectl port-forward hello-app-deployment 8080:8080
+
+
+
+
+
+
+
 # flux notes
 Prerequisites:
 * Kubernetes Cluster
@@ -28,7 +40,7 @@ flux bootstrap github \
 --owner=jtgorny \
 --repository=hello-world-k8s \
 --branch=master \
---namespace=flux-system \
+--path=./ \
 --personal
 
 # Create the source to monitor & set interval
