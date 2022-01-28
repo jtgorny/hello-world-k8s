@@ -36,7 +36,7 @@ flux create source git sample-app \
 --url=https://github.com/jtgorny/hello-world-k8s \
 --branch=master \
 --interval=1m \
---export > ./out/sample-app-source.yaml
+--export > ./flux-system/sample-app-source.yaml
 
 git add -A && git commit -m "Add podinfo GitRepository"
 git push
@@ -48,6 +48,6 @@ flux create kustomization sample-app \
 --path="./kustomize" \
 --prune=true \
 --interval=5m \
---export > ./out/sample-app-kustomization.yaml
+--export > ./flux-system/sample-app-kustomization.yaml
 
 # 
