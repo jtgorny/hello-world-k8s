@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-deployment
+  labels:
+    app: hello-world
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      nodeSelector:
+        type: backend
+      containers:
+        - name: hello-world
+          image: gornyj/hello-world:test
+          ports:
+            - containerPort: 8080
