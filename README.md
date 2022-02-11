@@ -51,7 +51,7 @@ cd flux-infra
 # Create the source to monitor & set interval
 flux create source git hello-world \
 --url=https://github.com/jtgorny/hello-world-k8s \
---branch=master \
+--branch=main \
 --interval=1m \
 --export > ./k8s/sample-source.yaml
 
